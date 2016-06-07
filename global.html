@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Polr Link Shortener</title>
+    <script type="text/javascript">
+      function performCommand(event) {
+        if (event.command != 'shortenlink') return false;
+        
+        var url = safari.application.activeBrowserWindow.activeTab.url;
+        
+        var requestURL = safari.extension.settings.endpoint;
+        requestURL += '/api/v2/action/shorten?';
+        requestURL += 'key=' + safari.extension.secureSettings.apikey;
+        requestURL += '&url=' + encodeURIComponent(url);
+        requestURL += '&is_secret=false';
+        
+        var request = new XMLHttpRequest();
+        request.open("GET", requestURL, true);
+        request.onreadystatechange = function() {
+          if (request.readyState == 4) {
+            if (request.status == 200) {
+              alert(request.responseText);
+            } else {
+              alert('Failed to shorten link.');
+            }
+          }
+        }
+
+        request.send();
+      }
+      
+      safari.application.addEventListener('command', performCommand, true);
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
