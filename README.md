@@ -12,4 +12,4 @@ Acknowledgements
 
 Icon made by [Madebyoliver](http://www.flaticon.com/authors/madebyoliver) from 
 [Flaticon](http://www.flaticon.com) and is licensed by 
-[CC 3.0 BY]("http://creativecommons.org/licenses/by/3.0/").
+[CC 3.0 BY](http://creativecommons.org/licenses/by/3.0/).
